@@ -1,0 +1,601 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background-color: #f8fafc;
+    color: #1a202c;
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+body.dark-theme{
+     background-color: #1a202c;
+    color: #f7fafc;
+}
+#conatiner{
+    min-width: 100vw;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+#dashboard{
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        padding: 1.2rem 2rem 1.3rem ;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+body.dark-theme #dashboard {
+    background: linear-gradient(135deg, #2d3748 0%, #4a5568 100%);
+}
+#Dash-p{
+      color: white;
+    font-size: 1.8rem;
+    font-weight: 700;
+}
+.toggle_button{
+        background: rgba(255, 255, 255, 0.23);
+        border: none;
+        padding: 0.75rem 1.5rem ;
+         border-radius: 20px;
+    color: white;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+}
+.toggle_button:hover{
+    background: rgba(255, 255, 255, 0.333);
+    transform: scale(1.05);
+}
+.toggle_button img{
+    width: 20px;
+    height: 20px;
+}
+.toggle_button img:hover {
+    transform: rotate(45deg);
+    transition: transform 0.3s ease;
+}
+.dashboard-main {
+    padding: 2.5rem;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+#searchBox {
+    display: block;
+    margin: 0 auto;
+    padding: 0.8rem 1.2rem;
+    font-size: 1rem;
+    border: 1px solid #cbd5e0;
+    box-shadow: 0 0 9px rgba(0, 0, 0, 0.1) ;
+    border-radius: 12px;
+    outline: none;
+    transition: all 0.3s ease;
+    width: 100%;
+    max-width: 700px;
+}
+#searchBox::placeholder {
+    font-size: 1rem;       
+    text-align: center;      
+    color: #a0aec0;          
+}
+#searchBox:hover{
+    transform: translateZ(20px) scale(1.03);
+     border-color: #667eea;
+    box-shadow: 0 0 6px rgba(102, 126, 234, 0.6);
+}
+body.dark-theme #searchBox {
+    background-color: #2d3748;
+    border: 1px solid #4a5568;
+    color: #f7fafc;
+}
+body.dark-theme #searchBox:hover {
+      transform: translateZ(20px) scale(1.03);
+     border-color: #667eea;
+    box-shadow: 0 0 6px rgba(102, 126, 234, 0.6);
+    background-color: #1a202c;
+}
+body.dark-theme #searchBox::placeholder {
+    color: #a0aec0;
+}
+#search_area {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    margin: 1.5rem auto 2rem;
+    max-width: 800px;
+    padding: 0 1rem;
+}
+
+#searchBtn {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border: none;
+    padding: 0.8rem 1.5rem;
+    border-radius: 12px;
+    color: white;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    position: relative;
+    overflow: hidden;
+}
+#searchBtn::before {
+    content: "🔍";
+    font-size: 1.1rem;
+}
+
+#searchBtn:hover {
+    transform: translatez(15px) scale(1.08);
+}
+body.dark-theme #searchBtn {
+    background: linear-gradient(135deg, #4a5568 0%, #2d3748 100%);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+}
+.stats-grid{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+   margin: 1.5rem 2rem auto;
+}
+.stat-card {
+    background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+    padding: 1.5rem;
+    border-radius: 12px;
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+}
+.stat-card:hover {
+   transform: translateZ(20px) scale(1.03);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+}
+body.dark-theme .stat-card {
+    background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+    border: 1px solid #475569;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+.stat-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+.coin-symbol{
+     font-size: 0.9rem;
+    font-weight: 600;
+    color: #64748b;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+body.dark-theme .coin-symbol{
+    color: #94a3b8;
+}
+.change-indicator{
+     font-size: 0.8rem;
+    font-weight: 600;
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+}
+
+.change-indicator.negative {
+    color: #dc2626;
+    background-color: rgba(220, 38, 38, 0.1);
+}
+.stat-price {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #1e293b;
+    margin-bottom: 0.5rem;
+}
+
+body.dark-theme .stat-price {
+    color: #f1f5f9;
+}
+
+.stat-change {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: #64748b;
+}
+
+body.dark-theme .stat-change {
+    color: #94a3b8;
+}
+.content-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+    gap: 2rem;
+    margin: 1.5rem 2rem auto;
+}
+.chart-card{
+  background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+    padding: 1.5rem;
+    border-radius: 12px;
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+}
+.chart-card:hover{
+     transform: translateZ(20px) scale(1.03);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+}
+.table-card{
+      background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+    padding: 1.5rem;
+    border-radius: 12px;
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+}
+.table-card:hover{
+      transform: translateZ(20px) scale(1.03);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+}
+body.dark-theme .chart-card,
+body.dark-theme .table-card {
+    background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+    border: 1px solid #475569;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+.card-header {
+    padding: 1.5rem;
+    border-bottom: 1px solid #e2e8f0;
+    background: rgba(248, 250, 252, 0.5);
+}
+    body.dark-theme .card-header {
+    border-bottom: 1px solid #475569;
+    background: rgba(30, 41, 59, 0.5);
+}
+#crytp-top{
+     font-size: 1.4rem;
+    font-weight: 600;
+    color: #1e293b;
+    margin: 0;
+    text-align: center;
+}
+body.dark-theme .card-header #crytp-top{
+    color: #f1f5f9;
+}
+.table-container {
+    max-height: 400px;
+    overflow-y: auto;
+    margin: 1rem;
+}
+#crypto-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+#crypto-table th{
+    background: #f8fafc;
+    color: #374151;
+    padding: 0.75rem;
+    text-align: left;
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    border-bottom: 2px solid #e5e7eb;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+body.dark-theme #crypto-table th {
+    background: #374151;
+    color: #d1d5db;
+    border-bottom: 2px solid #4b5563;
+}
+
+#crypto-table td {
+    padding: 1rem;
+    border-bottom: 1px solid #f3f4f6;
+    color: #374151;
+    font-size: 0.9rem;
+}
+
+body.dark-theme #crypto-table td {
+    color: #f9fafb;
+    border-bottom: 1px solid #4b5563;
+}
+
+#crypto-table tbody tr {
+    transition: all 0.2s ease;
+}
+
+#crypto-table tbody tr:hover {
+    background-color: #f8fafc;
+    cursor: pointer;
+    transform: translateX(4px);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+body.dark-theme #crypto-table tbody tr:hover {
+    background-color: #475569;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+.positive {
+    color: #059669 !important;
+}
+
+.negative {
+    color: #dc2626 !important;
+}
+
+body.dark-theme .positive {
+    color: #10b981 !important;
+}
+
+body.dark-theme .negative {
+    color: #f87171 !important;
+}
+
+/* Portfolio Legend Styling */
+.portfolio-legend {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-top: 1rem;
+    padding: 1rem;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.legend-color {
+    width: 16px;
+    height: 16px;
+    border-radius: 3px;
+}
+
+/* Chart Container Styling */
+.chart-container {
+    padding: 2rem;
+    text-align: center;
+    font-size: 1.1rem;
+    color: #64748b;
+    background: rgba(248, 250, 252, 0.3);
+    border-radius: 8px;
+    margin: 1rem 0;
+    min-height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+body.dark-theme .chart-container {
+    color: #94a3b8;
+    background: rgba(30, 41, 59, 0.3);
+}
+
+/* Loading States */
+.loading {
+    opacity: 0.6;
+    pointer-events: none;
+    position: relative;
+}
+
+
+
+/* Footer Styling */
+.Dashboard-Footer {
+    background: #f8fafc;
+    border-top: 1px solid #e5e7eb;
+    padding: 1.5rem 2rem;
+    margin-top: 2rem;
+    text-align: center;
+    color: #64748b;
+    font-size: 0.9rem;
+}
+
+body.dark-theme .Dashboard-Footer {
+    background: #1e293b;
+    border-top: 1px solid #475569;
+    color: #94a3b8;
+}
+/* Responsive Design */
+@media (max-width: 1200px) {
+    .dashboard-main {
+        max-width: 100%;
+        padding: 2rem 1.5rem;
+    }
+    
+    .content-grid {
+        grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+        margin: 1.5rem 1rem auto;
+    }
+    
+    .stats-grid {
+        margin: 1.5rem 1rem auto;
+    }
+}
+
+@media (max-width: 1024px) {
+    .content-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .stats-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 1rem;
+    }
+    
+    #searchBox {
+        max-width: 90%;
+        margin: 1rem auto 1.5rem;
+    }
+    
+    .table-container {
+        max-height: 350px;
+        margin: 0.5rem;
+    }
+    
+    #crypto-table th,
+    #crypto-table td {
+        padding: 0.5rem;
+        font-size: 0.8rem;
+    }
+}
+
+@media (max-width: 768px) {
+    #dashboard {
+        padding: 1rem;
+        flex-direction: column;
+        gap: 1rem;
+        text-align: center;
+    }
+    
+    #Dash-p {
+        font-size: 1.5rem;
+    }
+    
+    .toggle_button {
+        padding: 0.5rem 1rem;
+        font-size: 0.9rem;
+    }
+    
+    .dashboard-main {
+        padding: 1.5rem 1rem;
+    }
+    
+    .stats-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+        margin: 1rem 0;
+    }
+    
+    .content-grid {
+        margin: 1rem 0;
+        gap: 1rem;
+    }
+    
+    .stat-card,
+    .chart-card,
+    .table-card {
+        padding: 1rem;
+    }
+    
+    .stat-price {
+        font-size: 1.6rem;
+    }
+    
+    .stat-header {
+        flex-direction: column;
+        gap: 0.5rem;
+        text-align: center;
+    }
+    
+    #search_area {
+        flex-direction: column;
+        gap: 0.8rem;
+        margin: 1rem auto 1.5rem;
+        padding: 0 0.5rem;
+    }
+    
+    #searchBox {
+        max-width: 95%;
+        padding: 0.7rem 1rem;
+        font-size: 0.9rem;
+    }
+    
+    #searchBtn {
+        padding: 0.7rem 1.2rem;
+        font-size: 0.9rem;
+        width: 100%;
+        max-width: 200px;
+    }
+    
+    .table-container {
+        max-height: 300px;
+        margin: 0.25rem;
+    }
+    
+    #crytp-top {
+        font-size: 1.2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    #dashboard {
+        padding: 0.75rem;
+    }
+    
+    #Dash-p {
+        font-size: 1.3rem;
+    }
+    
+    .toggle_button {
+        padding: 0.4rem 0.8rem;
+        font-size: 0.8rem;
+        gap: 0.3rem;
+    }
+    .toggle_button img {
+        width: 16px;
+        height: 16px;
+    }
+    .dashboard-main {
+        padding: 1rem 0.5rem;
+    }
+    .stat-card,
+    .chart-card,
+    .table-card {
+        padding: 0.8rem;
+        margin: 0 0.25rem;
+    }
+    .stat-price {
+        font-size: 1.4rem;
+    }
+    .coin-symbol {
+        font-size: 0.8rem;
+    }
+    .change-indicator {
+        font-size: 0.7rem;
+        padding: 0.2rem 0.4rem;
+    }
+    #search_area {
+        gap: 0.6rem;
+        margin: 0.8rem auto 1rem;
+        padding: 0 0.25rem;
+    }
+    #searchBox {
+        max-width: 98%;
+        padding: 0.6rem 0.8rem;
+        font-size: 0.85rem;
+    }
+    #searchBtn {
+        padding: 0.6rem 1rem;
+        font-size: 0.85rem;
+        max-width: 180px;
+    }
+    #crypto-table th,
+    #crypto-table td {
+        padding: 0.4rem 0.3rem;
+        font-size: 0.75rem;
+    }
+    .table-container {
+        max-height: 250px;
+        margin: 0.1rem;
+    }
+    #crytp-top {
+        font-size: 1rem;
+    }
+    .card-header {
+        padding: 0.8rem;
+    }
+}

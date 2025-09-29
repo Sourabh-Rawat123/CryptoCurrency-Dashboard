@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Crypto DashBoard</title>
+    <meta name="keywords" content="CryptoCurrency,Crypto,BitCoin,Ethereum,Trading">
+    <link rel="shortcut icon" href="assets/icons8-cryptocurrency-32.png" type="image/x-icon" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <div id="conatiner">
+      <nav id="dashboard">
+        <p id="Dash-p">Crypto DashBoard</p>
+        <button id="theme_toggle" class="toggle_button">
+          <img id="theme_icon" src="assets/night-mode.png" alt="theme icon" />
+          <span id="theme_text">Dark Mode</span>
+        </button>
+      </nav>
+      <main class="dashboard-main">
+        <div id="search_area">
+          <input
+            type="search"
+            id="searchBox"
+            placeholder="Search For Crypto Currency"
+          />
+          <button id="searchBtn">Search</button>
+        </div>
+        <section class="stats-grid">
+          <div class="stat-card">
+            <div class="stat-header">
+              <span class="coin-symbol">SEARCHED COIN</span>
+              <span class="change-indicator" id="coin-indicator"
+                >Loading...</span
+              >
+            </div>
+            <div class="stat-price" id="coin-price">loading...</div>
+            <div class="stat-change" id="coin-change"></div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-header">
+              <span class="crypto-symbol">Global Market Data</span>
+              <span class="change-indicator" id="market-indicator"
+                >Loading...</span
+              >
+            </div>
+            <div class="stat-price" id="total-market-cap">Loading...</div>
+            <div class="stat-change" id="market-change">Loading...</div>
+          </div>
+        </section>
+        <section class="content-grid">
+          <div class="chart-card">
+            <div class="card-header">
+              <h3><span class="coin-symbol"></span> Price History (24h)</h3>
+            </div>
+            <canvas id="priceChart"> </canvas>
+          </div>
+          <!--table Distribution-->
+          <div class="table-card">
+            <div class="card-header">
+              <h3 id="crytp-top">Top 5 Cryptocurrencies</h3>
+              <div class="table-container">
+                <table id="crypto-table">
+                  <thead>
+                    <tr>
+                      <th>Cryptocurrencty</th>
+                      <th>Price</th>
+                      <th>24h Change</th>
+                      <th>Market Cap</th>
+                      <th>Volume (24h)</th>
+                    </tr>
+                  </thead>
+                  <tbody id="crypto-table-body">
+                    <!-- Dynamic content will be inserted here -->
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+          <!--Volume Distribution-->
+
+          <div class="chart-card">
+            <div class="card-header">
+              <h3>Volume by Asset</h3>
+            </div>
+            <canvas class="chart-container" id="Volume_chart"> </canvas>
+          </div>
+          <!--Portfolio Distribution-->
+          <div class="chart-card">
+            <div class="card-header">
+              <h3>Portfolio Distribution</h3>
+            </div>
+            <canvas class="chart-container" id="Portfoliochart"> </canvas>
+            <div class="portfolio-legend">
+              <div class="legend-item">
+                <span class="legend-color btc-color"></span>
+                <span id="search_coin">Coin</span>
+              </div>
+              <div class="legend-item">
+                <span class="legend-color others-color"></span>
+                <span>Others</span>
+              </div>
+            </div>
+          </div>
+        </section>
+        <!--Footer Section-->
+        <footer class="Dashboard-Footer">
+          <p>&COPY;All rights of this Project is Reserved To Sourabh Rawat</p>
+        </footer>
+      </main>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/axios@1.6.7/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.2.0/dist/chart.umd.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns/dist/chartjs-adapter-date-fns.bundle.min.js"></script>
+    <script src="config.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
